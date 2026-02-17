@@ -21,8 +21,8 @@ public class AuthController {
     @PostMapping("/authenticate")
     public String generateToken(@RequestBody AuthRequest ar){
         try {
-            am.authenticate(new UsernamePasswordAuthenticationToken(ar.getUserName(), ar.getPassword()));
-            return ju.generateToken(ar.getUserName());
+            am.authenticate(new UsernamePasswordAuthenticationToken(ar.getUsername(), ar.getPassword()));
+            return ju.generateToken(ar.getUsername());
         } catch (Exception e) {
             throw e;
         }
